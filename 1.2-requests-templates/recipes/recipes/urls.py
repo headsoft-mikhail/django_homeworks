@@ -16,6 +16,15 @@ Including another URLconf
 
 from django.urls import path
 
+import calculator.views
+from calculator.views import main_view, recipe_view, DATA
 urlpatterns = [
-    # здесь зарегистрируйте вашу view-функцию
-]
+    path('', main_view, name='main')
+    # # Раскомментируйте код, чтобы данные урлы
+    # # обрабатывались Django
+    # path('current_time/', time_view, name='time'),
+    # path('workdir/', workdir_view, name='workdir'),
+    # path('admin/', admin.site.urls),
+] + [path(f'{item}/', recipe_view, name=item) for item in calculator.views.DATA.keys()]
+
+
