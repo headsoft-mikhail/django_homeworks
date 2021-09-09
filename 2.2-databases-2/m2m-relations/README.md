@@ -136,17 +136,17 @@ DATABASES = {
 Провести миграцию:
 
 ```bash
-python manage.py migrate
+python management.py migrate
 ```
 
 Загрузить тестовые данные:
 
 ```bash
-python manage.py loaddata articles.json
+python management.py loaddata articles.json
 ```
 
 Запустить отладочный веб-сервер проекта:
 
 ```bash
-python manage.py runserver
+python management.py runserver
 ```

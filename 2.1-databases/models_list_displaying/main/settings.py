@@ -53,8 +53,10 @@ MIDDLEWARE = [
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'netology_models_list',
+        'USER': 'postgres',
+        'PASSWORD': '1qaz2wsx',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

@@ -53,24 +53,24 @@ pip install -r requirements.txt
 - Команда для создания миграций приложения для базы данных
 
 ```bash
-python manage.py migrate
+python management.py migrate
 ```
 
 - Команда для загрузки данных из csv в БД
 
 ```bash
-python manage.py import_phones
+python management.py import_phones
 ```
 
 - Команда для запуска приложения
 
 ```bash
-python manage.py runserver
+python management.py runserver
 ```
 
 - При создании моделей или их изменении необходимо выполнить следующие команды:
 
 ```bash
-python manage.py makemigrations
-python manage.py migrate
+python management.py makemigrations
+python management.py migrate
 ```

@@ -55,5 +55,5 @@ manage.py migrate
 Выполнить команду:
 
 ```bash
-python manage.py runserver
+python management.py runserver
 ```

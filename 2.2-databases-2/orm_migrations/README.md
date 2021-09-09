@@ -55,17 +55,17 @@ pip install -r requirements.txt
 Провести миграцию:
 
 ```bash
-python manage.py migrate
+python management.py migrate
 ```
 
 Загрузить тестовые данные:
 
 ```bash
-python manage.py loaddata school.json
+python management.py loaddata school.json
 ```
 
 Запустить отладочный веб-сервер проекта:
 
 ```bash
-python manage.py runserver
+python management.py runserver
 ```

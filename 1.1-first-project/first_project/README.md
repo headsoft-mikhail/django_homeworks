@@ -42,5 +42,5 @@ pip install -r requirements.txt
 Выполнить команду:
 
 ```bash
-python manage.py runserver
+python management.py runserver
 ```

@@ -47,11 +47,12 @@ MIDDLEWARE = [
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'netology_import_phones',
+        'USER': 'postgres',
+        'PASSWORD': '1qaz2wsx',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -107,7 +108,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

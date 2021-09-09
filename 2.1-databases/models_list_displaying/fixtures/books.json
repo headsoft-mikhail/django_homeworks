@@ -16,5 +16,41 @@
       "author": "Джордж Оруэл",
       "pub_date": "2016-12-06"
     }
+  },
+  {
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+      "name": "Жизнь Ивана",
+      "author": "Иван Иванов",
+      "pub_date": "2016-12-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+      "name": "Жизнь Петра",
+      "author": "Петр Петров",
+      "pub_date": "2012-12-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 5,
+    "fields": {
+      "name": "Жизнь Сидора",
+      "author": "Сидор Сидоров",
+      "pub_date": "2013-12-06"
+    }
+  },
+  {
+    "model": "books.book",
+    "pk": 6,
+    "fields": {
+      "name": "Жизнь Алексея",
+      "author": "Алексей Алексеев",
+      "pub_date": "2014-12-06"
+    }
   }
 ]
