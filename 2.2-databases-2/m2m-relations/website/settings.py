@@ -75,8 +75,10 @@ WSGI_APPLICATION = 'website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'netology_m2m_relations',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'netology_import_news',
+        'USER': 'postgres',
+        'PASSWORD': '1qaz2wsx',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
