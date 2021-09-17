@@ -19,9 +19,6 @@
               <span class="badge {% if scope.is_main %}badge-primary{% else %}badge-secondary{% endif %}">{{ scope.tag.name }}</span>
             {% endfor %}
           </div>
-            {% for scope in article.scopes.all %}
-              <a href="#">{{ scope.name }}</a>
-            {% endfor %}
         </div>
       </div>
     {% endfor %}
