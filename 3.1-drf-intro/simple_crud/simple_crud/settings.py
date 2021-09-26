@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'rest_framework',
-
     'measurements',
 ]
 
@@ -79,8 +77,10 @@ WSGI_APPLICATION = 'simple_crud.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'netology_simple_crud',
+        'USER': 'postgres',
+        'PASSWORD': '1qaz2wsx',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
