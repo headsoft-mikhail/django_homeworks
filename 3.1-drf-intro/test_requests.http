@@ -1,1 +1,27 @@
-GET  http://127.0.0.1:8000/
+
+POST  http://127.0.0.1:8000/api/v1/projects/
+# Authorization: Basic headsoft 1qaz2wsx
+Content-Type: application/json
+
+{
+    "name":"first",
+    "longitude":"31",
+    "latitude":"61"
+}
+
+
+GET  http://127.0.0.1:8000/api/v1/projects/
+Accept: application/json
+
+POST  http://127.0.0.1:8000/api/v1/measurements/
+Content-Type: application/json
+
+{
+    "value":"12",
+    "project":"2"
+}
+
+
+GET  http://127.0.0.1:8000/api/v1/measurements/
+Accept: application/json
+
