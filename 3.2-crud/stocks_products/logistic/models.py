@@ -6,6 +6,9 @@ class Product(models.Model):
     title = models.CharField(max_length=60, unique=True)
     description = models.TextField(null=True, blank=True)
 
+    class Meta:
+        ordering = ['-id']
+
 
 class Stock(models.Model):
     address = models.CharField(max_length=200, unique=True)
@@ -14,6 +17,9 @@ class Stock(models.Model):
         through='StockProduct',
         related_name='stocks',
     )
+
+    class Meta:
+        ordering = ['-id']
 
 
 class StockProduct(models.Model):
@@ -33,3 +39,6 @@ class StockProduct(models.Model):
         decimal_places=2,
         validators=[MinValueValidator(0)],
     )
+
+    class Meta:
+        ordering = ['price']
