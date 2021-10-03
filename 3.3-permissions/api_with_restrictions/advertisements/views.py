@@ -4,9 +4,8 @@ from rest_framework.viewsets import ModelViewSet
 from advertisements.filters import AdvertisementFilter
 from advertisements.models import Advertisement
 from advertisements.serializers import AdvertisementSerializer
-from rest_framework.exceptions import ValidationError
 
-from logistic.permissions import IsOwner, IsAdmin, IsOwnerOrAdmin
+from advertisements.permissions import IsOwnerOrAdmin
 
 
 class AdvertisementViewSet(ModelViewSet, ):
