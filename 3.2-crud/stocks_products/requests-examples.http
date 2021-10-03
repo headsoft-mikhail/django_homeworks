@@ -1,14 +1,14 @@
 # примеры API-запросов
 
-@baseUrl = http://localhost:8000/api/v1
+@baseUrl = http://127.0.0.1:8000/api/v1
 
 # создание продукта
 POST {{baseUrl}}/products/
 Content-Type: application/json
 
 {
-  "title": "Помидор",
-  "description": "Лучшие помидоры на рынке"
+  "title": "onion2",
+  "description": "Best onion!"
 }
 
 ###
@@ -20,43 +20,43 @@ Content-Type: application/json
 ###
 
 # обновление продукта
-PATCH {{baseUrl}}/products/1/
+PATCH {{baseUrl}}/products/7/
 Content-Type: application/json
 
 {
-  "description": "Самые сочные и ароматные помидорки"
+  "description": "Огурейки"
 }
 
 ###
 
 # удаление продукта
-DELETE {{baseUrl}}/products/1/
+DELETE http://127.0.0.1:8000/api/v1/products/7/
 Content-Type: application/json
 
 ###
 
 # поиск продуктов по названию и описанию
-GET {{baseUrl}}/products/?search=помидор
+GET {{baseUrl}}/products/?search=!
 Content-Type: application/json
 
 ###
+
+GET http://127.0.0.1:8000/api/v1/stocks/
+Content-Type: application/json
+
 
 # создание склада
 POST {{baseUrl}}/stocks/
 Content-Type: application/json
 
 {
-  "address": "мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
+  "address": "мой адрес3",
   "positions": [
     {
+      "stock": 1,
       "product": 2,
       "quantity": 250,
       "price": 120.50
-    },
-    {
-      "product": 3,
-      "quantity": 100,
-      "price": 180
     }
   ]
 }
@@ -64,20 +64,25 @@ Content-Type: application/json
 ###
 
 # обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+PATCH {{baseUrl}}/stocks/38/
 Content-Type: application/json
 
 {
   "positions": [
     {
       "product": 2,
-      "quantity": 100,
-      "price": 130.80
+      "quantity": 27,
+      "price": 12.50
     },
     {
-      "product": 3,
-      "quantity": 243,
-      "price": 145
+      "product": 1,
+      "quantity": 202,
+      "price": 10.50
+    },
+    {
+      "product": 5,
+      "quantity": 3,
+      "price": 1.50
     }
   ]
 }
@@ -86,4 +91,10 @@ Content-Type: application/json
 
 # поиск складов, где есть определенный продукт
 GET {{baseUrl}}/stocks/?products=2
+Content-Type: application/json
+
+
+# поиск складов, где есть определенный продукт
+
+GET {{baseUrl}}/stocks/?products=onion
 Content-Type: application/json
