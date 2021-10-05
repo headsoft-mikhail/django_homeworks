@@ -1,8 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-
-from advertisements.models import Advertisement
+from advertisements.models import Advertisement, AdvertisementStatusChoices
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -25,16 +24,13 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'creator',
                   'status', 'created_at', )
 
-    # def update(self, instance, validated_data):
-    #     if instance.creator != validated_data['creator']:
-    #         raise ValidationError('Access denied: wrong owner token')
-    #     return super().update(instance, validated_data)
-
-
-
     def validate(self, data):
         """Метод для валидации. Вызывается при создании и обновлении."""
-
-        # TODO: добавьте требуемую валидацию
-
-        return data
+        if data.get('status') == AdvertisementStatusChoices.CLOSED:
+            return data
+        else:
+            adv_count = Advertisement.objects.filter(creator=self.context['request'].user.id,
+                                                     status=AdvertisementStatusChoices.OPEN).count()
+            if adv_count >= 1:
+                raise ValidationError('Maximal active advertisements count reached.')
+            return data

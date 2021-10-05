@@ -5,13 +5,13 @@ from logistic.models import Product, Stock, StockProduct
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = "__all__"
+        fields = '__all__'
 
 
 class ProductPositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = StockProduct
-        fields = "__all__"
+        fields = ['product', 'quantity', 'price', ]
 
 
 class StockSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class StockSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Stock
-        fields = "__all__"
+        fields = '__all__'
 
     def create(self, validated_data):
         positions = validated_data.pop('positions')
@@ -43,21 +43,3 @@ class StockSerializer(serializers.ModelSerializer):
                                                       "quantity": position.get('quantity')})
         return stock
 
-
-# class StockSerializer1(serializers.ModelSerializer):
-#     positions = ProductPositionSerializer(many=True, read_only=True)
-#
-#     class Meta:
-#         model = Stock
-#         fields = "__all__"
-#
-#     def create(self, validated_data):
-#         stock = super().create(validated_data)
-#         positions = self.initial_data.get("positions")
-#         for position in positions:
-#             product_instance = Product.objects.filter(pk=position.get('product'))[0]
-#             StockProduct.objects.create(stock=stock,
-#                                         product=product_instance,
-#                                         price=position.get('price'),
-#                                         quantity=position.get('quantity'))
-#         return stock
