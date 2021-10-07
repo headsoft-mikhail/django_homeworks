@@ -31,6 +31,6 @@ class AdvertisementSerializer(serializers.ModelSerializer):
         else:
             adv_count = Advertisement.objects.filter(creator=self.context['request'].user.id,
                                                      status=AdvertisementStatusChoices.OPEN).count()
-            if adv_count >= 1:
+            if adv_count >= 10:
                 raise ValidationError('Maximal active advertisements count reached.')
             return data
